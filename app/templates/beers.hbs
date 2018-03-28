@@ -1,0 +1,18 @@
+<h2>New Beer</h2>
+{{input value=name placeholder="Name"}}
+{{input value=brewer placeholder="Brewer"}}
+{{input value=type placeholder="Type"}}
+{{input value=abv placeholder="ABV"}}
+{{input value=city placeholder="City"}}
+{{input value=country placeholder="Country"}}
+<button {{action "publishBeer"}}>Publish</button>
+<section>
+{{#each model as |beer|}}
+  <div>{{beer.name}}</div>
+  <div>{{beer.brewer}}</div>
+  <div>{{beer.type}}</div>
+  <div>{{beer.abv}}</div>
+  <div>{{beer.city}}</div>
+  <div>{{beer.country}}</div>
+{{/each}}
+</section>
