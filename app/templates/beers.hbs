@@ -6,12 +6,14 @@
 {{input value=city placeholder="City"}}
 {{input value=country placeholder="Country"}}
 <button {{action "publishBeer"}}>Add Beer</button>
+<section>
 {{#each model.hunts as |hunt|}}
   <div>{{hunt.user}}</div>
   <div>{{hunt.beer}}</div>
   <div>{{hunt.rate}}</div>
   <div>{{hunt.note}}</div><br />
 {{/each}}
+</section>
 <section>
 {{#each model.beers as |beer|}}
   {{#link-to "hunts" (query-params beer=beer.id user=session.currentUser.uid )}}
