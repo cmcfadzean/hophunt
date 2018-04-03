@@ -8,10 +8,12 @@
 <button {{action "publishBeer"}}>Add Beer</button>
 <section>
 {{#each model.hunts as |hunt|}}
-  <div>{{hunt.user}}</div>
-  <div>{{hunt.beer}}</div>
-  <div>{{hunt.rate}}</div>
-  <div>{{hunt.note}}</div><br />
+  {{#if (eq hunt.user session.currentUser.uid)}}
+    <div>{{hunt.user}}</div>
+    <div>{{hunt.beer.name}}</div>
+    <div>{{hunt.rate}}</div>
+    <div>{{hunt.note}}</div><br />
+  {{/if}}
 {{/each}}
 </section>
 <section>
