@@ -1,11 +1,3 @@
-<h2>New Beer</h2>
-{{input value=name placeholder="Name"}}
-{{input value=brewer placeholder="Brewer"}}
-{{input value=type placeholder="Type"}}
-{{input value=abv placeholder="ABV"}}
-{{input value=city placeholder="City"}}
-{{input value=country placeholder="Country"}}
-<button {{action "publishBeer"}}>Add Beer</button>
 <section>
 {{#each model.hunts as |hunt|}}
   {{#if (eq hunt.user session.currentUser.uid)}}
@@ -28,3 +20,11 @@
   {{/link-to}}<br />
 {{/each}}
 </section>
+<h2>New Beer</h2>
+{{input value=name placeholder="Name"}}
+{{input value=brewer placeholder="Brewer"}}
+{{input value=type placeholder="Type"}}
+{{input value=abv placeholder="ABV"}}
+{{input value=city placeholder="City"}}
+{{input value=country placeholder="Country"}}
+<button {{action "publishBeer"}}>Add Beer</button>
