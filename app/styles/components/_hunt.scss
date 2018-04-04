@@ -1,0 +1,29 @@
+.hunt {
+  margin: 30px 0;
+  &-card {
+    background: #fff;
+    border: $border;
+    border-radius: $border-radius;
+    padding: 20px 30px;
+    &-image {
+      padding-right: 30px;
+      img {
+        height: 75px;
+      }
+    }
+    &-name {
+      margin: 5px 0;
+      font-weight: 600;
+    }
+    &-abv {
+      margin: 5px 0;
+    }
+    &-rating {
+      margin: 5px 0;
+      img {
+        width: 20px;
+        margin-right: 5px;
+      }
+    }
+  }
+}

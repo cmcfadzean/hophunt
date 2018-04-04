@@ -4,17 +4,17 @@
       {{#if (eq hunt.user session.currentUser.uid)}}
       <div class="hunt-card">
         <div class="media">
-          <div class="media-left media-middle">
-            <img class="hunt-card-image" src="assets/images/beer.png" >
+          <div class="media-left media-middle hunt-card-image">
+            <img src="assets/images/beer.png" >
           </div>
           <div class="media-body media-middle">
             <p class="hunt-card-name">{{hunt.beer.brewer}} {{hunt.beer.name}}</p>
-            <p class="hunt-card-abv">%{{hunt.beer.abv}}ABV</p>
             <p class="hunt-card-rating">
               <img src="assets/images/vote_{{hunt.rate}}.png" >
               {{#if (eq hunt.rate 1)}} You enjoyed this beer.{{/if}}
               {{#if (eq hunt.rate 2)}} You did not enjoy this beer.{{/if}}
             </p>
+            <p class="hunt-card-abv">{{hunt.beer.abv}}% ABV</p>
           </div>
         </div>
       </div>
