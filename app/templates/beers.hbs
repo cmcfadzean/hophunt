@@ -2,10 +2,22 @@
   <div class="hunt">
     {{#each model.hunts as |hunt|}}
       {{#if (eq hunt.user session.currentUser.uid)}}
-        <div>{{hunt.user}}</div>
-        <div>{{hunt.beer.name}}</div>
-        <div>{{hunt.rate}}</div>
-        <div>{{hunt.note}}</div><br />
+      <div class="hunt-card">
+        <div class="media">
+          <div class="media-left media-middle">
+            <img class="hunt-card-image" src="assets/images/beer.png" >
+          </div>
+          <div class="media-body media-middle">
+            <p class="hunt-card-name">{{hunt.beer.brewer}} {{hunt.beer.name}}</p>
+            <p class="hunt-card-abv">%{{hunt.beer.abv}}ABV</p>
+            <p class="hunt-card-rating">
+              <img src="assets/images/vote_{{hunt.rate}}.png" >
+              {{#if (eq hunt.rate 1)}} You enjoyed this beer.{{/if}}
+              {{#if (eq hunt.rate 2)}} You did not enjoy this beer.{{/if}}
+            </p>
+          </div>
+        </div>
+      </div>
       {{/if}}
     {{/each}}
   </div>
