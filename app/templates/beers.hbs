@@ -1,30 +1,32 @@
-<section>
-{{#each model.hunts as |hunt|}}
-  {{#if (eq hunt.user session.currentUser.uid)}}
-    <div>{{hunt.user}}</div>
-    <div>{{hunt.beer.name}}</div>
-    <div>{{hunt.rate}}</div>
-    <div>{{hunt.note}}</div><br />
-  {{/if}}
-{{/each}}
-</section>
-<section>
-{{#each model.beers as |beer|}}
-  {{#link-to "hunts" (query-params beer=beer.id user=session.currentUser.uid )}}
-    <div>{{beer.name}}</div>
-    <div>{{beer.brewer}}</div>
-    <div>{{beer.type}}</div>
-    <div>{{beer.abv}}</div>
-    <div>{{beer.city}}</div>
-    <div>{{beer.country}}</div>
-  {{/link-to}}<br />
-{{/each}}
-</section>
-<h2>New Beer</h2>
-{{input value=name placeholder="Name"}}
-{{input value=brewer placeholder="Brewer"}}
-{{input value=type placeholder="Type"}}
-{{input value=abv placeholder="ABV"}}
-{{input value=city placeholder="City"}}
-{{input value=country placeholder="Country"}}
-<button {{action "publishBeer"}}>Add Beer</button>
+<div class="container">
+  <div class="hunt">
+    {{#each model.hunts as |hunt|}}
+      {{#if (eq hunt.user session.currentUser.uid)}}
+        <div>{{hunt.user}}</div>
+        <div>{{hunt.beer.name}}</div>
+        <div>{{hunt.rate}}</div>
+        <div>{{hunt.note}}</div><br />
+      {{/if}}
+    {{/each}}
+  </div>
+  <div class="beer">
+    {{#each model.beers as |beer|}}
+      {{#link-to "hunts" (query-params beer=beer.id user=session.currentUser.uid )}}
+        <div>{{beer.name}}</div>
+        <div>{{beer.brewer}}</div>
+        <div>{{beer.type}}</div>
+        <div>{{beer.abv}}</div>
+        <div>{{beer.city}}</div>
+        <div>{{beer.country}}</div>
+      {{/link-to}}<br />
+    {{/each}}
+  </div>
+  <h2>New Beer</h2>
+  {{input value=name placeholder="Name"}}
+  {{input value=brewer placeholder="Brewer"}}
+  {{input value=type placeholder="Type"}}
+  {{input value=abv placeholder="ABV"}}
+  {{input value=city placeholder="City"}}
+  {{input value=country placeholder="Country"}}
+  <button {{action "publishBeer"}}>Add Beer</button>
+</div>

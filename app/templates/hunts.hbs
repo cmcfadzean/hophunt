@@ -1,15 +1,7 @@
-<h2>New Hunt</h2>
-{{#link-to "hunts" (query-params beer=beer user=user rate=1 )}}1{{/link-to}}
-{{#link-to "hunts" (query-params beer=beer user=user rate=2 )}}2{{/link-to}}
-{{textarea value=note cols="80" rows="6"}}
-<button {{action "huntBeer"}}>Hunt Beer</button>
-<section>
-{{#each model as |hunt|}}
-  {{#if (eq hunt.user session.currentUser.uid)}}
-    <div>{{hunt.user}}</div>
-    <div>{{hunt.beer.name}}</div>
-    <div>{{hunt.rate}}</div>
-    <div>{{hunt.note}}</div><br />
-  {{/if}}
-{{/each}}
-</section>
+<div class="container">
+  <h2>New Hunt</h2>
+  {{#link-to "hunts" (query-params beer=beer user=user rate=1 )}}1{{/link-to}}
+  {{#link-to "hunts" (query-params beer=beer user=user rate=2 )}}2{{/link-to}}
+  {{textarea value=note cols="80" rows="6"}}
+  <button {{action "huntBeer"}}>Hunt Beer</button>
+</div>
