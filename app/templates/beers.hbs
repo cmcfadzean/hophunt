@@ -33,12 +33,32 @@
       {{/link-to}}<br />
     {{/each}}
   </div>
-  <h2>New Beer</h2>
-  {{input value=name placeholder="Name"}}
-  {{input value=brewer placeholder="Brewer"}}
-  {{input value=type placeholder="Type"}}
-  {{input value=abv placeholder="ABV"}}
-  {{input value=city placeholder="City"}}
-  {{input value=country placeholder="Country"}}
-  <button {{action "publishBeer"}}>Add Beer</button>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Add New Beer
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New Beer</h4>
+        </div>
+        <div class="modal-body">
+          {{input value=name placeholder="Name"}}
+          {{input value=brewer placeholder="Brewer"}}
+          {{input value=type placeholder="Type"}}
+          {{input value=abv placeholder="ABV"}}
+          {{input value=city placeholder="City"}}
+          {{input value=country placeholder="Country"}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button {{action "publishBeer"}}>Add Beer</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
