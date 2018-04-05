@@ -1,8 +1,7 @@
 import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
-import FindQuery from 'ember-emberfire-find-query/mixins/find-query';
 
-export default Route.extend(FindQuery,{
+export default Route.extend({
   model: function() {
     return RSVP.hash({
       beers: this.get('store').findAll('beer'),
