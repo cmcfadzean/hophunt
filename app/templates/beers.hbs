@@ -1,20 +1,23 @@
 <div class="container">
-  <div class="hunt">
+  <div class="beer">
     {{#each model.hunts as |hunt|}}
       {{#if (eq hunt.user session.currentUser.uid)}}
-      <div class="hunt-card">
+      <div class="beer-card">
         <div class="media">
-          <div class="media-left media-middle hunt-card-image">
-            <img src="assets/images/beer.png" >
+          <div class="media-left media-middle beer-card-image">
+            <img src="assets/images/beer_hunted.png" >
           </div>
           <div class="media-body media-middle">
-            <p class="hunt-card-name">{{hunt.beer.brewer}} {{hunt.beer.name}}</p>
-            <p class="hunt-card-rating">
-              <img src="assets/images/vote_{{hunt.rate}}.png" >
+            <p class="beer-card-name">{{hunt.beer.brewer}} {{hunt.beer.name}}</p>
+            <p class="beer-card-abv"><span>{{hunt.beer.type}}</span> {{hunt.beer.abv}}% ABV</p>
+            <p class="beer-card-location">{{hunt.beer.city}}, {{hunt.beer.country}}</p>
+          </div>
+          <div class="media-right media-middle">
+            <p class="beer-card-rating">
               {{#if (eq hunt.rate 1)}} You enjoyed this beer.{{/if}}
               {{#if (eq hunt.rate 2)}} You did not enjoy this beer.{{/if}}
+              <img src="assets/images/vote_{{hunt.rate}}.png" >
             </p>
-            <p class="hunt-card-abv">{{hunt.beer.abv}}% ABV</p>
           </div>
         </div>
       </div>
@@ -24,17 +27,25 @@
   <div class="beer">
     {{#each model.beers as |beer|}}
       {{#link-to "hunts" (query-params beer=beer.id user=session.currentUser.uid )}}
-        <div>{{beer.name}}</div>
-        <div>{{beer.brewer}}</div>
+        <div class="beer-card">
+          <div class="media">
+            <div class="media-left media-middle beer-card-image">
+              <img src="assets/images/beer.png" >
+            </div>
+            <div class="media-body media-middle">
+              <p class="beer-card-name">{{beer.brewer}} {{beer.name}}</p>
+            </div>
+          </div>
+        </div>
         <div>{{beer.type}}</div>
         <div>{{beer.abv}}</div>
         <div>{{beer.city}}</div>
         <div>{{beer.country}}</div>
-      {{/link-to}}<br />
+      {{/link-to}}
     {{/each}}
   </div>
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
     Add New Beer
   </button>
 
@@ -47,12 +58,12 @@
           <h4 class="modal-title" id="myModalLabel">New Beer</h4>
         </div>
         <div class="modal-body">
-          {{input value=name placeholder="Name"}}
-          {{input value=brewer placeholder="Brewer"}}
-          {{input value=type placeholder="Type"}}
-          {{input value=abv placeholder="ABV"}}
-          {{input value=city placeholder="City"}}
-          {{input value=country placeholder="Country"}}
+          {{input value=name placeholder="Name" class="form-control"}}
+          {{input value=brewer placeholder="Brewer" class="form-control"}}
+          {{input value=type placeholder="Type" class="form-control"}}
+          {{input value=abv placeholder="ABV" class="form-control"}}
+          {{input value=city placeholder="City" class="form-control"}}
+          {{input value=country placeholder="Country" class="form-control"}}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
