@@ -42,18 +42,28 @@
       {{/link-to}}
     {{/each}}
   </div>
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Add New Beer
-  </button>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="null null-left">
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="null-title">Well Done {{session.currentUser.displayName}}!</h4>
+        <p class="null-text">Looks like your beer is not yet in the system. You Should add it!</p>
+        <a type="button" class="null-btn" data-toggle="modal" data-target="#beerModal">
+          Add your beer
+        </a>
+      </div>
+      <div class="col-md-6">
+        <img class="null-img" src="assets/images/beer_null.png" >
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="beerModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">New Beer</h4>
+          <h4 class="modal-title">New Beer</h4>
         </div>
         <div class="modal-body">
           {{input value=name placeholder="Name" class="form-control"}}

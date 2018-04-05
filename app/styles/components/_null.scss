@@ -1,0 +1,41 @@
+.null {
+  background: #fff;
+  border: $border;
+  border-radius: $border-radius;
+  padding: 100px;
+  margin: 30px 0;
+  color: $color-text;
+  font-size: 0;
+  &-img {
+    width: 100%;
+  }
+  &-title {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  &-text {
+    font-size: 18px;
+    margin: 15px 0;
+    line-height: 1.6;
+  }
+  &-btn {
+    font-size: 14px;
+    display: inline-block;
+    padding: 15px 30px;
+    background: $color-primary;
+    color: #fff;
+    border-radius: $border-radius;
+    margin-top: 10px;
+    &:hover {
+      text-decoration: none;
+      background-color: lighten($color-primary, 10%);
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+  .col-md-6 {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
