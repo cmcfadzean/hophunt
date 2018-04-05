@@ -2,25 +2,25 @@
   <div class="beer">
     {{#each model.hunts as |hunt|}}
       {{#if (eq hunt.user session.currentUser.uid)}}
-      <div class="beer-card">
-        <div class="media">
-          <div class="media-left media-middle beer-card-image">
-            <img src="assets/images/beer_hunted.png" >
-          </div>
-          <div class="media-body media-middle">
-            <p class="beer-card-name">{{hunt.beer.brewer}} {{hunt.beer.name}}</p>
-            <p class="beer-card-abv"><span>{{hunt.beer.type}}</span> {{hunt.beer.abv}}% ABV</p>
-            <p class="beer-card-location">{{hunt.beer.city}}, {{hunt.beer.country}}</p>
-          </div>
-          <div class="media-right media-middle">
-            <p class="beer-card-rating">
-              {{#if (eq hunt.rate 1)}} You enjoyed this beer.{{/if}}
-              {{#if (eq hunt.rate 2)}} You did not enjoy this beer.{{/if}}
-              <img src="assets/images/vote_{{hunt.rate}}.png" >
-            </p>
+        <div class="beer-card">
+          <div class="media">
+            <div class="media-left media-middle beer-card-image">
+              <img src="assets/images/beer_hunted.png" >
+            </div>
+            <div class="media-body media-middle">
+              <p class="beer-card-name">{{hunt.beer.brewer}} {{hunt.beer.name}}</p>
+              <p class="beer-card-abv"><span>{{hunt.beer.type}}</span> {{hunt.beer.abv}}% ABV</p>
+              <p class="beer-card-location">{{hunt.beer.city}}, {{hunt.beer.country}}</p>
+            </div>
+            <div class="media-right">
+              <p class="beer-card-rating">
+                {{#if (eq hunt.rate 1)}} You enjoyed this beer.{{/if}}
+                {{#if (eq hunt.rate 2)}} You did not enjoy this beer.{{/if}}
+                <img src="assets/images/vote_{{hunt.rate}}.png" >
+              </p>
+            </div>
           </div>
         </div>
-      </div>
       {{/if}}
     {{/each}}
   </div>
@@ -34,13 +34,11 @@
             </div>
             <div class="media-body media-middle">
               <p class="beer-card-name">{{beer.brewer}} {{beer.name}}</p>
+              <p class="beer-card-abv"><span>{{beer.type}}</span> {{beer.abv}}% ABV</p>
+              <p class="beer-card-location">{{beer.city}}, {{beer.country}}</p>
             </div>
           </div>
         </div>
-        <div>{{beer.type}}</div>
-        <div>{{beer.abv}}</div>
-        <div>{{beer.city}}</div>
-        <div>{{beer.country}}</div>
       {{/link-to}}
     {{/each}}
   </div>
