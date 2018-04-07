@@ -7,5 +7,7 @@ export default DS.Model.extend({
   abv: DS.attr('number'),
   city: DS.attr('string'),
   country: DS.attr('string'),
-  timestamp: DS.attr('number')
+  timestamp: DS.attr('number'),
+  queryParams: ['search'],
+  search: ""
 });

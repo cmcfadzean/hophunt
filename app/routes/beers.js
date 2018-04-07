@@ -2,10 +2,15 @@ import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
 
 export default Route.extend({
-  model: function() {
+  queryParams: {
+    search: {
+      refreshModel: true
+    }
+  },
+  model: function(params) {
     return RSVP.hash({
-      beers: this.get('store').findAll('beer'),
-      hunts: this.get('store').findAll('hunt')
+      searchedBeers: this.store.query('beer', {orderBy: 'name', equalTo: params.search}),
+      allBeers: this.store.findAll('beer')
     });
   }
 });

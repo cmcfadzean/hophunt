@@ -15,7 +15,23 @@
 </div>
 <div class="container">
   <div class="beer">
-    {{#each model.beers as |beer|}}
+    {{#each model.searchedBeers as |beer|}}
+      {{#link-to "hunts" (query-params beer=beer.id user=session.currentUser.uid )}}
+        <div class="beer-card">
+          <div class="media">
+            <div class="media-left media-middle beer-card-image">
+              <img src="assets/images/beer.png" >
+            </div>
+            <div class="media-body media-middle">
+              <p class="beer-card-name">{{beer.brewer}} {{beer.name}}</p>
+              <p class="beer-card-abv"><span>{{beer.type}}</span> {{beer.abv}}% ABV</p>
+              <p class="beer-card-location">{{beer.city}}, {{beer.country}}</p>
+            </div>
+          </div>
+        </div>
+      {{/link-to}}
+    {{/each}}
+    {{#each model.allBeers as |beer|}}
       {{#link-to "hunts" (query-params beer=beer.id user=session.currentUser.uid )}}
         <div class="beer-card">
           <div class="media">
