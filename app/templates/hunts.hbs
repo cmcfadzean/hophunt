@@ -1,3 +1,17 @@
+<div class="nav">
+  <div class="container">
+    <div class="media">
+      <div class="media-left media-middle">
+        {{#link-to "application"}}<img src="assets/images/logo.png" >{{/link-to}}
+      </div>
+      <div class="media-body media-middle">
+      </div>
+      <div class="media-right media-middle">
+        <button {{action "signOut"}}>Sign out</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container">
   <h2>New Hunt</h2>
   {{#link-to "hunts" (query-params beer=beer user=user rate=1 )}}1{{/link-to}}
